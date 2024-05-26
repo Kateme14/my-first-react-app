@@ -1,3 +1,5 @@
+@import 'mixins';
+@import 'reset';
 
 .burger-wrapper{
   padding: 8px;
@@ -38,4 +40,171 @@
     transform: rotate(45deg) translate(-5px, -5px);
   }
   
+  //Новые стили 
+
+.card {
+  @include post-card;
+}
+
+.card-large {
+  padding: 16px;
+  // max-width: 715px;
+  width: 100%;
   
+  &-content-wrapper{
+    display: flex;
+    max-width: 700px;
+  }
+
+  &-image-wrapper {
+    width: 300px;
+    height: 300px;
+  }
+
+  &-image {
+    @include post-image;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &-content {
+    @include post-content;
+  max-width: 360px;
+ }
+
+ &-date {
+  @include post-date;
+ }
+
+ &-title {
+  margin-bottom: 30px;
+ }
+
+ &-text {
+  margin-bottom: 30px;
+ } 
+}
+
+.card-medium {
+  padding: 16px;
+  width: 100%;
+
+  &-image-wrapper {
+    display: flex;
+    width: 100%;
+    height: 190px;
+    margin-bottom: 10px;
+  }
+
+  &-image {
+    width: 100%;
+    height: 100%;
+  }
+
+  &-date {
+    @include post-date;
+   }
+
+  &-title {
+    margin-bottom: 10px;
+  }
+
+  &-text {
+    margin-bottom: 10px;
+  }
+}
+
+.card-small {
+  padding: 16px;
+  width: 100%;
+  margin-bottom: 8px;
+  &-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  &-image-wrapper {
+    width: 100px;
+    height: 100px;
+  }
+
+  &-image {
+    width: 100%;
+    height: 100%;
+  }
+
+  &-content {
+    max-width: 300px;
+  }
+
+  &-date {
+    @include post-date;
+   }
+
+  &-title {
+    margin: 0 0 10px;
+  }
+
+  &-text {
+    margin: 0 0 30px;
+  }
+
+}
+
+.card-actions {
+  display: flex;
+  column-gap: 2px;
+}
+
+.neutral {
+  @include icon-wrapper;
+  color: #555;
+}
+
+.post-icon {
+  @include icons;
+}
+
+.liked {
+  @include icon-wrapper;
+  color: rgb(139, 211, 139);
+}
+
+.disliked {
+  @include icon-wrapper;
+  color: rgb(235, 155, 155);
+}
+
+.post-cards-first {
+  display: grid;
+  grid-template-columns: 680px 1fr;
+  gap: 5px;
+}
+
+.first-grid-item {
+  &:nth-child(1) {
+    grid-row: span 2;
+  }
+}
+
+.post-section {
+  @include container;
+}
+
+.post-cards-second {
+  display: grid;
+  grid-template-columns: 337.5px 337.5px 1fr;
+  gap: 5px;
+}
+
+.second-grid-item {
+  &:nth-child(1) {
+    grid-row: span 2;
+  }
+  &:nth-child(2) {
+    grid-row: span 2;
+  }
+}
