@@ -1,15 +1,15 @@
-import React from 'react';
-import Card from './card';
-import { CardProps, CardVariant } from './types';
+import React from 'react'
+import Card from './card'
+import { CardProps, CardVariant } from './types'
 
 type PostListProps = {
-  posts: CardProps[];
-};
+  posts: CardProps[]
+}
 
-const PostList: React.FC<PostListProps> = ({ posts }) => {
-  const firstSection = posts.slice(0, 3);
-  const secondSection = posts.slice(3, 7);
-  const thirdSection = posts.slice(7, 11);
+const PostList = ({ posts }: PostListProps) => {
+  const firstSection = posts.slice(0, 3)
+  const secondSection = posts.slice(3, 7)
+  const thirdSection = posts.slice(7, 11)
 
   return (
     <div className="post-list">
@@ -44,4 +44,4 @@ const PostList: React.FC<PostListProps> = ({ posts }) => {
   );
 };
 
-export default PostList;
+export default PostList
