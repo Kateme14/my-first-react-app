@@ -1,6 +1,6 @@
-import React from 'react'
 import Card from './card'
 import { CardProps, CardVariant } from './types'
+
 
 type PostListProps = {
   posts: CardProps[]

@@ -4,7 +4,8 @@
 .burger-wrapper{
   padding: 8px;
   background: blue;
-  display: inline-block;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .burger-menu {
@@ -41,6 +42,10 @@
   }
   
   //Новые стили 
+
+.post-list {
+  padding: 120px 0;
+}
 
 .card {
   @include post-card;
