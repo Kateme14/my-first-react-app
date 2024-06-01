@@ -34,6 +34,7 @@ import { posts } from './components/postData'
 import SelectedPost from './components/SelectedPost'
 import Pagination from './components/Pagination'
 import Footer from './components/Footer'
+import SignUp from './components/LogIn'
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -56,6 +57,7 @@ const App = () => {
         <SelectedPost />
         <Pagination />
         <Footer />
+        <SignUp />
       </main>
     </div>
   )
