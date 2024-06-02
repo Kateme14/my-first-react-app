@@ -1,5 +1,5 @@
-import Card from './card'
-import { CardProps, CardVariant } from './types'
+import Card from '../card/Card'
+import { CardProps, CardVariant } from '../types/Types'
 
 
 type PostListProps = {

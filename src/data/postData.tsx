@@ -1,4 +1,4 @@
-import { CardVariant } from './types'
+import { CardVariant } from '../components/types/Types'
 import image1 from '../assets/image1.jpg'
 import image2 from '../assets/image2.webp'
 import image3 from '../assets/image3.jpg'

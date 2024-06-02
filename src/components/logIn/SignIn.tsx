@@ -1,7 +1,11 @@
 import React from 'react'
-import '../SignIn.scss'
+import '../../styles/SignIn.scss'
 
-const SignIn = () => {
+interface SignInProps {
+    toggleForm: () => void
+  }
+
+const SignIn: React.FC<SignInProps> = ({ toggleForm }) => {
   return (
     <div className="sign-in-page">
         <a href="#" className="sign-in-page__header-link">Back to Home Page</a>
@@ -23,7 +27,7 @@ const SignIn = () => {
                 <button type="submit" className="sign-in__button">Sign In</button>
                 </form>
                 <div className="sign-up__link-group">
-                <span className="sign-up__text">Don't have an account? </span><a className="sign-up__link" href="#">Sign up</a>
+                <span className="sign-up__text">Don't have an account? </span><a className="sign-up__link" href="#" onClick={toggleForm}>Sign up</a>
                 </div>
             </div>
         </div>

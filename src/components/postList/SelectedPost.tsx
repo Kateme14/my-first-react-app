@@ -1,6 +1,6 @@
-import '../SelectedPost.scss'
+import '../../styles/SelectedPost.scss'
 import React, { useState } from 'react'
-import image1 from '../assets/image1.jpg'
+import image1 from '../../assets/image1.jpg'
 
 const SelectedPost = () => {
   const post = {

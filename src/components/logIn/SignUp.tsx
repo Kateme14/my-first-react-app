@@ -1,19 +1,23 @@
-import React, { useState } from 'react';
-import '../SignIn.scss';
+import React, { useState } from 'react'
+import '../../styles/SignIn.scss'
 
-const SignUp = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [username, setUsername] = useState('');
+interface SignUpProps {
+  toggleForm: () => void
+}
+
+const SignUp: React.FC<SignUpProps> = ({ toggleForm }) => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [username, setUsername] = useState('')
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Email:', email);
-    console.log('Password:', password);
-    console.log('Confirm Password:', confirmPassword);
-    console.log('Username:', username);
-  };
+    e.preventDefault()
+    console.log('Email:', email)
+    console.log('Password:', password)
+    console.log('Confirm Password:', confirmPassword)
+    console.log('Username:', username)
+  }
 
   return (
     <div className="sign-in-page">
@@ -69,12 +73,12 @@ const SignUp = () => {
             <button type="submit" className="sign-in__button">Sign Up</button>
           </form>
           <div className="sign-up__link-group">
-            <span className="sign-up__text">Already have an account? </span><a className="sign-up__link" href="#">Sign in</a>
+            <span className="sign-up__text">Already have an account? </span><a className="sign-up__link" href="#" onClick={toggleForm}>Sign in</a>
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SignUp;
+export default SignUp

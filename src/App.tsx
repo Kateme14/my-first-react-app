@@ -24,22 +24,27 @@
 
 // Вариант через Props
 
-import BurgerMenu from './components/burger'
-import './App.scss'
+import BurgerMenu from './components/burger/Burger'
+import './styles/App.scss'
 import { useState } from 'react'
-import PostList from './components/postList'
-import SignIn from './components/SignIn'
-import SignInConfirmed from './components/SignInConfirmed'
-import { posts } from './components/postData'
-import SelectedPost from './components/SelectedPost'
-import Pagination from './components/Pagination'
-import Footer from './components/Footer'
-import SignUp from './components/LogIn'
+import PostList from './components/postList/postList'
+import SignIn from './components/logIn/SignIn'
+import SignInConfirmed from './components/logIn/SignInConfirmed'
+import { posts } from './data/postData'
+import SelectedPost from './components/postList/SelectedPost'
+import Pagination from './components/pagination/Pagination'
+import Footer from './components/footer/Footer'
+import SignUp from './components/logIn/SignUp'
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isSignUp, setIsSignUp] = useState(false)
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
+  }
+
+  const toggleForm = () => {
+    setIsSignUp(!isSignUp)
   }
 
   return (
@@ -52,12 +57,11 @@ const App = () => {
           <Card key={index} {...post} />
         ))} */}
         <PostList posts={posts} />
-        <SignIn />
+        {isSignUp ? <SignUp toggleForm={toggleForm} /> : <SignIn toggleForm={toggleForm} />}
         <SignInConfirmed />
         <SelectedPost />
         <Pagination />
         <Footer />
-        <SignUp />
       </main>
     </div>
   )

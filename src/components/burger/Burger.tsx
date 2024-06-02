@@ -25,7 +25,7 @@
 
 
 // Варинат через Props
-import '../App.scss'
+import '../../styles/App.scss'
 
 interface BurgerMenuProps {
   isOpen: boolean

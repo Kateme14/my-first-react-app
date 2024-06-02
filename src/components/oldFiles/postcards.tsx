@@ -1,5 +1,5 @@
 //Пршлый вариант, проверять не нужно
-import '../App.scss'
+import '../../styles/App.scss'
 
 interface PostCardProps {
     id: number

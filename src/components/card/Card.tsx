@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import '../App.scss'
-import { CardProps, CardVariant } from './types'
+import '../../styles/App.scss'
+import { CardProps, CardVariant } from '../types/Types'
 
 const Card = ({ date, title, imgSrc, text, variant }: CardProps) =>  {
   // const [isLiked, setIsLiked] = useState<boolean | undefined>(undefined)

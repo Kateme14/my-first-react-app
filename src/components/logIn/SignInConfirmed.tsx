@@ -1,4 +1,4 @@
-import '../SignIn.scss'
+import '../../styles/SignIn.scss'
 
 const SignInConfirmed = () => {
   return (
