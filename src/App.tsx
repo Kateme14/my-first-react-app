@@ -35,6 +35,9 @@ import SelectedPost from './components/postList/SelectedPost'
 import Pagination from './components/pagination/Pagination'
 import Footer from './components/footer/Footer'
 import SignUp from './components/logIn/SignUp'
+import SearchBar from './components/SearchBar/SearchBar'
+import { PostProvider } from './components/PostContext/PostContext'
+
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -47,23 +50,27 @@ const App = () => {
     setIsSignUp(!isSignUp)
   }
 
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <BurgerMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
-      </header>
-      <main>
-        {/* {posts.map((post, index) => (
-          <Card key={index} {...post} />
-        ))} */}
-        <PostList posts={posts} />
-        {isSignUp ? <SignUp toggleForm={toggleForm} /> : <SignIn toggleForm={toggleForm} />}
-        <SignInConfirmed />
-        <SelectedPost />
-        <Pagination />
-        <Footer />
-      </main>
-    </div>
+    <PostProvider>
+      <div className="App">
+        <header className="App-header">
+          <BurgerMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
+        </header>
+        <main>
+        <SearchBar />
+          {/* {posts.map((post, index) => (
+            <Card key={index} {...post} />
+          ))} */}
+          <PostList />
+          {isSignUp ? <SignUp toggleForm={toggleForm} /> : <SignIn toggleForm={toggleForm} />}
+          <SignInConfirmed />
+          <SelectedPost />
+          <Pagination />
+          <Footer />
+        </main>
+      </div>
+    </PostProvider>
   )
 }
 

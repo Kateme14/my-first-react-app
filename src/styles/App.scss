@@ -1,6 +1,10 @@
 @import 'mixins';
 @import 'reset';
 
+.App-header {
+  margin-bottom: 40px;
+}
+
 .burger-wrapper{
   padding: 8px;
   background: blue;
@@ -47,11 +51,12 @@
   padding: 120px 0;
 }
 
-.card {
-  @include post-card;
-}
+// .card {
+//   @include post-card;
+// }
 
 .card-large {
+  @include post-card;
   padding: 16px;
   // max-width: 715px;
   width: 100%;
@@ -86,12 +91,46 @@
   margin-bottom: 30px;
  }
 
+
+ &-title-small{ 
+  display: none;
+ }
+
  &-text {
   margin-bottom: 30px;
  } 
+
+ &-content-wrapper.large.filtered {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+  &.large.filtered {
+    max-width: 500px;
+    margin: 0 auto 8px;
+  }
+
+  &-image-wrapper.large.filtered {
+    width: 100px;
+    height: 100px;
+  }
+
+  &-text.large.filtered {
+    display: none;
+  }
+
+  &-title.large.filtered {
+    display: none;
+  }
+
+  &-title-small.large.filtered {
+    display: block;
+  }
 }
 
 .card-medium {
+  @include post-card;
   padding: 16px;
   width: 100%;
 
@@ -118,9 +157,41 @@
   &-text {
     margin-bottom: 10px;
   }
+
+  &.medium.filtered {
+    max-width: 500px;
+    margin: 0 auto 8px;
+  }
+
+  &-content-wrapper.filtered {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-image-wrapper.filtered {
+    width: 100px;
+    height: 100px;
+  }
+
+  &-image.filtered {
+    width: 100%;
+    height: 100%;
+  }
+
+  &-content.filtered {
+    max-width: 360px;
+    padding: 16px;
+  }
+
+  &-text.filtered {
+    display: none;
+  }
+
+
 }
 
 .card-small {
+  @include post-card;
   padding: 16px;
   width: 100%;
   margin-bottom: 8px;
@@ -157,6 +228,20 @@
     margin: 0 0 30px;
   }
 
+  &.small.filtered{
+    max-width: 500px;
+    margin: 0 auto 8px;
+  }
+
+  &-content-wrapper.filtered{
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  &-content.filtered {
+    max-width: 360px;
+    padding: 16px;
+  }
 }
 
 .card-actions {
@@ -213,3 +298,26 @@
     grid-row: span 2;
   }
 }
+
+.post-list.single-column {
+  display: flex;
+  flex-direction: column;
+  @include container;
+  padding: 120px 0;
+}
+
+.search-bar-wrapper {
+  @include container;
+}
+
+
+.search-bar {
+  max-width: 700px;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  outline: none;
+}
+
+
+
