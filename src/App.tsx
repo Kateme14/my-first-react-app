@@ -1,47 +1,20 @@
-// import Typo from "./components/typo"
-// import BurgerMenu from "./components/burger"
-// import './App.scss'
 
-
-// const App = () => {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <BurgerMenu />
-//       </header>
-//        <Typo value="Sign In" level={1} />
-//        <Typo value="Sign In" level={2} />
-//        <Typo value="Sign In" level={3} />
-//        <Typo value="Sign In" level={4} />
-//        <Typo value="Sign In" level={5} />
-//        <Typo value="Sign In" level={6} />
-//     </div>
-//   )
-// }
-
-// export default App
-
-
-// Вариант через Props
-
-import BurgerMenu from './components/burger/Burger'
 import './styles/App.scss'
-import { useState } from 'react'
-import PostList from './components/postList/postList'
+import React, { useState } from 'react'
 import SignIn from './components/logIn/SignIn'
-import SignInConfirmed from './components/logIn/SignInConfirmed'
-import { posts } from './data/postData'
-import SelectedPost from './components/postList/SelectedPost'
-import Pagination from './components/pagination/Pagination'
-import Footer from './components/footer/Footer'
 import SignUp from './components/logIn/SignUp'
-import SearchBar from './components/SearchBar/SearchBar'
 import { PostProvider } from './components/PostContext/PostContext'
+import Header from './components/burger/Header'
+import Modal from './components/Modal/Modal'
+import RouterComponent from './RouterComponent'
 
 
-const App = () => {
+const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isSignUp, setIsSignUp] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [showLoginModal, setShowLoginModal] = useState(false)
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
@@ -50,24 +23,41 @@ const App = () => {
     setIsSignUp(!isSignUp)
   }
 
+  const handleLogin = () => {
+    setIsLoggedIn(true)
+    setShowLoginModal(false)
+  }
+
+  const handleLogout = () => {
+    setIsLoggedIn(false)
+  }
+
+  const openLoginModal = () => {
+    setShowLoginModal(true)
+  }
+
+  const closeLoginModal = () => {
+    setShowLoginModal(false)
+  }
 
   return (
     <PostProvider>
       <div className="App">
-        <header className="App-header">
-          <BurgerMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
-        </header>
+      <Header 
+          isMenuOpen={isMenuOpen} 
+          toggleMenu={toggleMenu} 
+          toggleForm={openLoginModal}
+          isLoggedIn={isLoggedIn} 
+          handleLogout={handleLogout} />
+        <Modal show={showLoginModal} onClose={closeLoginModal}>
+          {isSignUp ? (
+            <SignUp toggleForm={toggleForm} />
+          ) : (
+            <SignIn toggleForm={toggleForm} onLogin={handleLogin} />
+          )}
+        </Modal>
         <main>
-        <SearchBar />
-          {/* {posts.map((post, index) => (
-            <Card key={index} {...post} />
-          ))} */}
-          <PostList />
-          {isSignUp ? <SignUp toggleForm={toggleForm} /> : <SignIn toggleForm={toggleForm} />}
-          <SignInConfirmed />
-          <SelectedPost />
-          <Pagination />
-          <Footer />
+          <RouterComponent isSignUp={isSignUp} toggleForm={toggleForm} onLogin={handleLogin} />
         </main>
       </div>
     </PostProvider>

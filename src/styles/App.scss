@@ -1,49 +1,5 @@
 @import 'mixins';
 @import 'reset';
-
-.App-header {
-  margin-bottom: 40px;
-}
-
-.burger-wrapper{
-  padding: 8px;
-  background: blue;
-  display: flex;
-  justify-content: flex-start;
-}
-
-.burger-menu {
-    display: flex;
-    flex-direction: column;
-    column-gap: 6px;
-    justify-content: space-around;
-    align-items: center;
-    width: 30px;
-    height: 30px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-  }
-  
-  .burger-menu div {
-    width: 20px;
-    height: 2px;
-    background-color: #fff;
-    transition: all 0.3s;
-  }
-  
-  .burger-menu.open .bar1 {
-    transform: rotate(-45deg) translate(-5px, 5px);
-  }
-  
-  .burger-menu.open .bar2 {
-  display: none;
-  }
-  
-  .burger-menu.open .bar3 {
-    transform: rotate(45deg) translate(-5px, -5px);
-  }
   
   //Новые стили 
 

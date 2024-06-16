@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import '../../styles/App.scss'
 import { CardProps, CardVariant } from '../types/Types'
-import { usePostContext } from '../../components/PostContext/PostContext'
 
 interface CardComponentProps extends CardProps {
   isFiltered: boolean
@@ -22,7 +21,6 @@ const handleLike = () => {
     switch (variant) {
       case CardVariant.Large:
         return (
-          // <div className="card-large">
           <div className={`card-large ${cardClassName}`}>
             <div className={`card-large-content-wrapper ${cardClassName}`}>
                 <div className={`card-large-content ${cardClassName}`}>
@@ -41,7 +39,6 @@ const handleLike = () => {
         )
       case CardVariant.Medium:
         return (
-          // <div className="card-medium">
           <div className={`card-medium ${cardClassName}`}>
             <div className={`card-medium-content-wrapper ${cardClassName}`}>
               <a className={`card-medium-image-wrapper ${cardClassName}`} href="#">{imgSrc && <img src={imgSrc} alt={title} className={`card-medium-image ${cardClassName}`} />}</a>
@@ -59,13 +56,11 @@ const handleLike = () => {
         )
       case CardVariant.Small:
         return (
-          // <div className="card-small">
           <div className={`card-small ${cardClassName}`}>
             <div className={`card-small-content-wrapper ${cardClassName}`}>
                 <div className={`card-small-content ${cardClassName}`}>
                 <p className={`card-small-date ${cardClassName}`}>{date}</p>
                 <h4 className={`card-small-title ${cardClassName}`}>{title}</h4>
-                {/* <p className="card-small-text">{text}</p>    */}
                 </div>
                 <a className={`card-small-image-wrapper ${cardClassName}`} href="#">{imgSrc && <img src={imgSrc} alt={title} className={`card-small-image ${cardClassName}`} />}</a>
             </div>
