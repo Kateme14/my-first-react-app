@@ -7,6 +7,10 @@ import { PostProvider } from './components/PostContext/PostContext'
 import Header from './components/burger/Header'
 import Modal from './components/Modal/Modal'
 import RouterComponent from './RouterComponent'
+import SearchBar from './components/SearchBar/SearchBar'
+import { Provider } from 'react-redux'
+import { store } from './redux/store'
+import { PostModal } from './components/Modal/PostModal'
 
 
 const App: React.FC = () => {
@@ -41,26 +45,29 @@ const App: React.FC = () => {
   }
 
   return (
-    <PostProvider>
-      <div className="App">
-      <Header 
-          isMenuOpen={isMenuOpen} 
-          toggleMenu={toggleMenu} 
-          toggleForm={openLoginModal}
-          isLoggedIn={isLoggedIn} 
-          handleLogout={handleLogout} />
-        <Modal show={showLoginModal} onClose={closeLoginModal}>
-          {isSignUp ? (
-            <SignUp toggleForm={toggleForm} />
-          ) : (
-            <SignIn toggleForm={toggleForm} onLogin={handleLogin} />
-          )}
-        </Modal>
-        <main>
-          <RouterComponent isSignUp={isSignUp} toggleForm={toggleForm} onLogin={handleLogin} />
-        </main>
-      </div>
-    </PostProvider>
+    <Provider store={store}>
+      <PostProvider>
+        <div className="App">
+        <Header 
+            isMenuOpen={isMenuOpen} 
+            toggleMenu={toggleMenu} 
+            toggleForm={openLoginModal}
+            isLoggedIn={isLoggedIn} 
+            handleLogout={handleLogout} />
+          <Modal show={showLoginModal} onClose={closeLoginModal}>
+            {isSignUp ? (
+              <SignUp toggleForm={toggleForm} />
+            ) : (
+              <SignIn toggleForm={toggleForm} onLogin={handleLogin} />
+            )}
+          </Modal>
+          <main>
+            <RouterComponent isSignUp={isSignUp} toggleForm={toggleForm} onLogin={handleLogin} />
+          </main>
+          <PostModal />
+        </div>
+      </PostProvider>
+    </Provider>
   )
 }
 

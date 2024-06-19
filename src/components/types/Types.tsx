@@ -3,11 +3,15 @@ export enum CardVariant {
     Medium = 'medium',
     Small = 'small',
   }
-  
-  export type CardProps = {
+
+  export type PostType = {
+    variant: CardVariant
     date: string
     title: string
     imgSrc?: string
     text: string
+  }
+  
+  export interface CardProps extends PostType {
     variant: CardVariant
   }

@@ -200,6 +200,11 @@
   }
 }
 
+.card-actions-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
 .card-actions {
   display: flex;
   column-gap: 2px;
