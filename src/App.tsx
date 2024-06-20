@@ -11,6 +11,7 @@ import SearchBar from './components/SearchBar/SearchBar'
 import { Provider } from 'react-redux'
 import { store } from './redux/store'
 import { PostModal } from './components/Modal/PostModal'
+import { BrowserRouter, Router } from 'react-router-dom'
 
 
 const App: React.FC = () => {
@@ -46,27 +47,30 @@ const App: React.FC = () => {
 
   return (
     <Provider store={store}>
-      <PostProvider>
-        <div className="App">
-        <Header 
-            isMenuOpen={isMenuOpen} 
-            toggleMenu={toggleMenu} 
-            toggleForm={openLoginModal}
-            isLoggedIn={isLoggedIn} 
-            handleLogout={handleLogout} />
-          <Modal show={showLoginModal} onClose={closeLoginModal}>
-            {isSignUp ? (
-              <SignUp toggleForm={toggleForm} />
-            ) : (
-              <SignIn toggleForm={toggleForm} onLogin={handleLogin} />
-            )}
-          </Modal>
-          <main>
-            <RouterComponent isSignUp={isSignUp} toggleForm={toggleForm} onLogin={handleLogin} />
-          </main>
-          <PostModal />
-        </div>
-      </PostProvider>
+      <BrowserRouter>
+        <PostProvider>
+            <div className="App">
+            <Header 
+                isMenuOpen={isMenuOpen} 
+                toggleMenu={toggleMenu} 
+                toggleForm={openLoginModal}
+                isLoggedIn={isLoggedIn} 
+                handleLogout={handleLogout} />
+              <Modal show={showLoginModal} onClose={closeLoginModal}>
+                {isSignUp ? (
+                  <SignUp toggleForm={toggleForm} />
+                ) : (
+                  <SignIn toggleForm={toggleForm} onLogin={handleLogin} />
+                )}
+              </Modal>
+              <main>
+                <RouterComponent isSignUp={isSignUp} toggleForm={toggleForm} onLogin={handleLogin} />
+              </main>
+              <PostModal />
+            </div>
+        </PostProvider>
+        <PostModal />
+      </BrowserRouter>
     </Provider>
   )
 }

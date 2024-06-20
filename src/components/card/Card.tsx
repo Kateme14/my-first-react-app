@@ -5,6 +5,7 @@ import { setSelectedPost } from '../../redux/postPopUpReducer'
 import { useDispatch } from 'react-redux'
 
 
+
 interface CardComponentProps extends CardProps {
   isFiltered: boolean
 }
@@ -95,7 +96,6 @@ const Card = ({ date, title, imgSrc, text, variant, isFiltered }: CardComponentP
                       <a href="#" className="card-actions-bookmark neutral"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32"><path fill="currentColor" d="M24 4v22.75l-7.1-3.59l-.9-.45l-.9.45L8 26.75V4zm0-2H8a2 2 0 0 0-2 2v26l10-5l10 5V4a2 2 0 0 0-2-2"/></svg></a>
                       <a href="#" onClick={handlePopUp} className="card-actions-link neutral"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"><path fill="currentColor" d="M3 9.5a1.5 1.5 0 1 1 0-3a1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3a1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3a1.5 1.5 0 0 1 0 3"/></svg></a>
               </div> 
-              {/* <PostModal /> */}
             </div> 
           </div>
         )
@@ -105,9 +105,6 @@ const Card = ({ date, title, imgSrc, text, variant, isFiltered }: CardComponentP
   }
 
   return (
-    // <div className={`card`}>
-    //   {renderContent()}
-    // </div>
     <div className="card">{renderContent()}</div>
     
   )

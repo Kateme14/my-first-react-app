@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom'
 import PostList from './components/postList/PostList'
 import SignIn from './components/logIn/SignIn'
 import SignInConfirmed from './components/logIn/SignInConfirmed'
@@ -15,7 +15,7 @@ interface RouterComponentProps {
 
 const RouterComponent: React.FC<RouterComponentProps> = ({ isSignUp, toggleForm, onLogin }) => {
   return (
-    <Router>
+    // <Router>
       <Routes>
         <Route path="/posts" Component={() => <PostList />} />
         <Route path="/signin" Component={() => <SignIn toggleForm={toggleForm} onLogin={onLogin} />} />
@@ -25,7 +25,7 @@ const RouterComponent: React.FC<RouterComponentProps> = ({ isSignUp, toggleForm,
         <Route path="/pagination" Component={() => <Pagination />} />
         <Route path="/" Component={() => <PostList />} />
       </Routes>
-    </Router>
+    // </Router>
   )
 }
 
