@@ -5,6 +5,7 @@ export enum CardVariant {
   }
 
   export type PostType = {
+    id: string
     variant: CardVariant
     date: string
     title: string

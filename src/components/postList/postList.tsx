@@ -2,19 +2,28 @@ import Card from '../card/Card'
 import { usePostContext } from '../../components/PostContext/PostContext'
 import React from 'react'
 import SearchBar from '../SearchBar/SearchBar'
+import { PostType } from '../types/Types'
 
-const PostList = () => {
-  const { query, filteredPosts } = usePostContext()
-  const firstSection = filteredPosts.slice(0, 3)
-  const secondSection = filteredPosts.slice(3, 7)
-  const thirdSection = filteredPosts.slice(7, 11)
+interface PostListProps {
+  posts: PostType[]
+}
+
+const PostList: React.FC<PostListProps> = ({ posts }) => {
+  // const { query, filteredPosts } = usePostContext()
+  const { query } = usePostContext()
+  const firstSection = posts.slice(0, 3)
+  const secondSection = posts.slice(3, 7)
+  const thirdSection = posts.slice(7, 11)
+  // const firstSection = filteredPosts.slice(0, 3)
+  // const secondSection = filteredPosts.slice(3, 7)
+  // const thirdSection = filteredPosts.slice(7, 11)
 
   return (
     <div className="post-list-wrapper">
       <SearchBar />
       <div className={`post-list ${query ? 'single-column' : ''}`}>
         {query ? (
-          filteredPosts.map((post, index) => (
+          posts.map((post, index) => (
             <div key={index} className="post-item">
               <Card {...post} isFiltered={!!query} />
               {/* <Card {...post} /> */}

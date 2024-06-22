@@ -3,7 +3,7 @@ import { CardProps } from '../../components/types/Types'
 import { posts as initialPosts } from '../../data/postData'
 
 interface PostContextProps {
-  query: string;
+  query: string
   setQuery: (query: string) => void
   filteredPosts: CardProps[]
 }

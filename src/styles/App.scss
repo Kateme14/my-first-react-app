@@ -203,11 +203,13 @@
 .card-actions-wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .card-actions {
   display: flex;
   column-gap: 2px;
+  align-items: center
 }
 
 .neutral {
@@ -280,5 +282,13 @@
   outline: none;
 }
 
+.likes-counter {
+  color: #747373;
+  font-size: 12px;
+}
+
+.bookmarked {
+  color: #985dc5;
+}
 
 
