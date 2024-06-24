@@ -1,0 +1,17 @@
+@import 'mixins';
+.pagination {
+    @include container;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: solid 2px rgb(131, 129, 128);
+    &__text {
+        color: rgb(72, 73, 74);
+        text-decoration: none;
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
