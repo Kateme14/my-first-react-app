@@ -1,0 +1,18 @@
+.pagination {
+  max-width: 1230px;
+  padding: 0 15px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: solid 2px rgb(131, 129, 128);
+}
+.pagination__text {
+  color: rgb(72, 73, 74);
+  text-decoration: none;
+  cursor: pointer;
+}
+.pagination__text:hover {
+  text-decoration: underline;
+}/*# sourceMappingURL=Pagination.css.map */

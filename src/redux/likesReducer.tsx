@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction, Slice } from '@reduxjs/toolkit'
 
 type LikesState = {
   [postId: string]: {
@@ -9,7 +9,8 @@ type LikesState = {
 
 const initialState: LikesState = {}
 
-const likesReducer = createSlice({
+// const likesReducer = createSlice({
+  const likesSlice: Slice<LikesState> = createSlice({
   name: 'likes',
   initialState,
   reducers: {
@@ -33,5 +34,5 @@ const likesReducer = createSlice({
   }
 })
 
-export const { likePost, dislikePost, setLikes } = likesReducer.actions
-export default likesReducer.reducer
+export const { likePost, dislikePost, setLikes } = likesSlice.actions
+export default likesSlice.reducer

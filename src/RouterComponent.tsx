@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom'
-import PostList from './components/postList/PostList'
+import PostList from './components/postList/postList'
 import SignIn from './components/logIn/SignIn'
 import SignInConfirmed from './components/logIn/SignInConfirmed'
 import SignUp from './components/logIn/SignUp'

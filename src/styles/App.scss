@@ -262,6 +262,21 @@
   }
 }
 
+.post-cards-third {
+  display: grid;
+  grid-template-columns: 337.5px 337.5px 1fr;
+  gap: 5px;
+}
+
+.third-grid-item {
+  &:nth-child(1) {
+    grid-row: span 2;
+  }
+  &:nth-child(2) {
+    grid-row: span 2;
+  }
+}
+
 .post-list.single-column {
   display: flex;
   flex-direction: column;
@@ -290,5 +305,3 @@
 .bookmarked {
   color: #985dc5;
 }
-
-

@@ -1,0 +1,34 @@
+.tabbed-post-list-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.tabbed-post-list-button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  border: none;
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+.tabbed-post-list-button:hover {
+  background-color: #e0e0e0;
+}
+.tabbed-post-list-active {
+  font-weight: bold;
+  border-bottom: 2px solid #333;
+}
+.tabbed-post-list-inactive {
+  background-color: #f0f0f0;
+}
+.tabbed-post-list .posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.tabbed-post-list .posts .post-item {
+  margin: 10px;
+}/*# sourceMappingURL=TabbedPostList.css.map */

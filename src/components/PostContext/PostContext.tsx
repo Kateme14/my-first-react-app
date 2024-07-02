@@ -20,7 +20,10 @@ export const usePostContext = () => {
 
 export const PostProvider = ({ children }: { children: ReactNode }) => {
   const [query, setQuery] = useState('');
-  const filteredPosts = initialPosts.filter(post =>
+  const filteredPosts = initialPosts.map(post => ({
+    ...post,
+    body: post.text, 
+  })).filter(post =>
     post.title.toLowerCase().includes(query.toLowerCase()) ||
     post.text.toLowerCase().includes(query.toLowerCase())
   )

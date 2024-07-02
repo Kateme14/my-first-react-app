@@ -10,7 +10,7 @@ import DotsLink from "../icons/Icons"
 export const PostModal = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-    const { selectedPost } = useSelector((state: RootState) => state.postPopUpReducer)
+    const { selectedPost } = useSelector((state: RootState) => state.postPopUp)
     if (!selectedPost) return null
 
 
