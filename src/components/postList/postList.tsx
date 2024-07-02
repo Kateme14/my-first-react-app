@@ -2,13 +2,15 @@ import React from 'react'
 import Card from '../card/Card'
 import SearchBar from '../SearchBar/SearchBar'
 import { CardVariant, PostType } from '../types/Types'
+import { usePostContext } from '../PostContext/PostContext'
 
 interface PostListProps {
     posts: PostType[]
 }
 
 const PostList: React.FC<PostListProps> = ({ posts }) => {
-    const limitedPosts = posts.slice(0, 11) 
+    const { filteredPosts } = usePostContext()
+    const limitedPosts = filteredPosts.slice(0, 11) 
 
     const firstSection = limitedPosts.slice(0, 3)
     const secondSection = limitedPosts.slice(3, 7)

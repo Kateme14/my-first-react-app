@@ -16,21 +16,30 @@ import { fetchPosts } from '../../src/postsActions/PostsActions'
 import { PostType } from '../../src/components/types/Types'
 
 interface PostsState {
+  items: any
   posts: PostType[]
+  query: string
   loading: boolean
   error: string | null
 }
 
 const initialState: PostsState = {
   posts: [],
+  query: '',
   loading: false,
   error: null,
+  items: undefined
 }
 
 const postsReducer = createSlice({
   name: 'posts',
   initialState,
-  reducers: {},
+  // reducers: {},
+  reducers: {
+    setQuery: (state, action: PayloadAction<string>) => {
+      state.query = action.payload
+    }
+    },
   extraReducers: (builder) => {
       builder
           .addCase(fetchPosts.pending, (state) => {
@@ -49,4 +58,5 @@ const postsReducer = createSlice({
   },
 })
 
+export const { setQuery } = postsReducer.actions
 export default postsReducer.reducer

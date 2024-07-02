@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { PostType, CardVariant } from '../../src/components/types/Types'
+
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
     const response = await axios.get('https://jsonplaceholder.typicode.com/posts')
     console.log('API Response:', response.data)
