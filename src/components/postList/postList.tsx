@@ -9,8 +9,14 @@ interface PostListProps {
 }
 
 const PostList: React.FC<PostListProps> = ({ posts }) => {
-    const { filteredPosts } = usePostContext()
+    // const { filteredPosts } = usePostContext()
+    const { query, setQuery } = usePostContext()
+    const filteredPosts = posts.filter(post =>
+        post.title.toLowerCase().includes(query.toLowerCase()) ||
+        post.body.toLowerCase().includes(query.toLowerCase())
+    )
     const limitedPosts = filteredPosts.slice(0, 11) 
+    // const limitedPosts = posts.slice(0, 11)
 
     const firstSection = limitedPosts.slice(0, 3)
     const secondSection = limitedPosts.slice(3, 7)

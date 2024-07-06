@@ -18,6 +18,7 @@ const TabbedPostList: React.FC = () => {
 }, [dispatch])
 
   console.log('Posts from state:', posts)
+  console.log('Bookmarks from state:', bookmarks)
 
   const filteredPosts = activeTab === 'all' ? posts : posts.filter(post => bookmarks.includes(post.id))
 

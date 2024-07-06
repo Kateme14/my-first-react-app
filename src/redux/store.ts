@@ -4,6 +4,7 @@ import postsReducer from '../redux/postsReducer'
 import postPopUpReducer from './postPopUpReducer'
 import likesReducer from './likesReducer'
 import bookmarksReducer from './bookmarksReducer'
+// import rootSaga from './rootSaga'
 
 const combineReducer = combineReducers({
   posts: postsReducer,
