@@ -1,0 +1,41 @@
+@mixin container(){
+    max-width: 1230px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+@mixin post-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+  
+  @mixin post-image {
+    width: 100%;
+  }
+  
+  @mixin post-content {
+    padding: 16px;
+  }
+  
+  @mixin post-date {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+  }
+
+  @mixin post-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    column-gap: 30px;
+  }
+
+@mixin icon-wrapper {
+    display: flex;
+}
+
+@mixin icons {
+    width: 100%;
+    height: 100%;
+}
