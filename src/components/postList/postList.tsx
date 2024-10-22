@@ -3,13 +3,13 @@ import Card from '../card/Card'
 import SearchBar from '../SearchBar/SearchBar'
 import { CardVariant, PostType } from '../types/Types'
 import { usePostContext } from '../PostContext/PostContext'
+import { PostModal } from '../Modal/PostModal'
 
 interface PostListProps {
     posts: PostType[]
 }
 
 const PostList: React.FC<PostListProps> = ({ posts }) => {
-    // const { filteredPosts } = usePostContext()
     const { query, setQuery } = usePostContext()
     const filteredPosts = posts.filter(post =>
         post.title.toLowerCase().includes(query.toLowerCase()) ||
@@ -61,7 +61,9 @@ const PostList: React.FC<PostListProps> = ({ posts }) => {
                     </div>
                 </div>
             </div>
+            <PostModal />
         </div>
+        
     )
 }
 

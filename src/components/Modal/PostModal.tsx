@@ -14,9 +14,6 @@ export const PostModal = () => {
     if (!selectedPost) return null
 
 
-  //   const handleClose = () => {
-  //     dispatch(setSelectedPost(null))
-  // }
 
   const handleClose = (event: React.MouseEvent) => {
     event.stopPropagation()
@@ -25,7 +22,7 @@ export const PostModal = () => {
 
   const handleNavigate = () => {
     dispatch(setSelectedPost(null))
-    navigate('/selected-post')
+    navigate(`/post/${selectedPost.id}`)
   }
 
     return (

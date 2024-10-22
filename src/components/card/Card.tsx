@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { likePost, dislikePost } from '../../redux/likesReducer'
 import { RootState } from '../../redux/store'
 import { addBookmark, removeBookmark } from '../../redux/bookmarksReducer'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -21,6 +22,7 @@ const Card: React.FC<CardComponentProps> = ({ id, date, title, imgSrc, text, var
   const bookmarks = useSelector((state: RootState) => state.bookmarks.bookmarks)
   const [likeStatus, setLikeStatus] = useState<'liked' | 'disliked' | undefined>(undefined)
   const isBookmarked = bookmarks.includes(id)
+  const navigate = useNavigate()
   const handleLike = () => {
     setLikeStatus(likeStatus === 'liked' ? undefined : 'liked')
     if (likeStatus !== 'liked') {
@@ -45,6 +47,10 @@ const Card: React.FC<CardComponentProps> = ({ id, date, title, imgSrc, text, var
 
   const handlePopUp = () => {
     dispatch(setSelectedPost({ id, date, title, imgSrc: imgSrc || '', text, variant }))
+  }
+
+  const handleNavigate = () => {
+    navigate(`/post/${id}`)
   }
 
   const renderContent = () => {

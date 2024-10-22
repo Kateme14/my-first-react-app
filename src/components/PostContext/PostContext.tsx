@@ -23,15 +23,6 @@ export const usePostContext = () => {
   return context
 }
 
-// export const PostProvider = ({ children }: { children: ReactNode }) => {
-//   const [query, setQuery] = useState('');
-//   const filteredPosts = initialPosts.map(post => ({
-//     ...post,
-//     body: post.text, 
-//   })).filter(post =>
-//     post.title.toLowerCase().includes(query.toLowerCase()) ||
-//     post.text.toLowerCase().includes(query.toLowerCase())
-//   )
 export const PostProvider = ({ children }: { children: ReactNode }) => {
   const dispatch = useDispatch()
   const { posts, query } = useSelector((state: RootState) => state.posts)

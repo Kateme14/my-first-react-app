@@ -208,18 +208,12 @@
 
 .post-cards-first {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 680px 1fr;
   gap: 5px;
 }
 
-.first-grid-item-large {
+.first-grid-item:nth-child(1) {
   grid-row: span 2;
-}
-
-.first-grid-item-small {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
 }
 
 .post-section {
@@ -230,24 +224,28 @@
 
 .post-cards-second {
   display: grid;
-  grid-template-columns: repeat(2, 1fr) 1fr;
+  grid-template-columns: 337.5px 337.5px 1fr;
   gap: 5px;
 }
 
-.second-grid-item-medium {
+.second-grid-item:nth-child(1) {
   grid-row: span 2;
 }
-
-.second-grid-item-small {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+.second-grid-item:nth-child(2) {
+  grid-row: span 2;
 }
 
 .post-cards-third {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 337.5px 337.5px 1fr;
   gap: 5px;
+}
+
+.third-grid-item:nth-child(1) {
+  grid-row: span 2;
+}
+.third-grid-item:nth-child(2) {
+  grid-row: span 2;
 }
 
 .post-list.single-column {

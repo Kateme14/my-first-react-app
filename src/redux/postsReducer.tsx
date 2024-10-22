@@ -1,18 +1,5 @@
-// import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-// import { PostType } from '../components/types/Types'
-// import { posts as initialPosts } from '../../src/data/postData'
-
-// const postsReducer = createSlice({
-//   name: 'posts',
-//   initialState: initialPosts,
-//   reducers: {
-//   }
-// })
-
-// export default postsReducer.reducer
-
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { fetchPosts } from '../../src/postsActions/PostsActions'
+import { fetchPostById, fetchPosts } from '../../src/postsActions/PostsActions'
 import { PostType } from '../../src/components/types/Types'
 
 interface PostsState {
@@ -21,6 +8,7 @@ interface PostsState {
   query: string
   loading: boolean
   error: string | null
+  selectedPost: PostType | null
 }
 
 const initialState: PostsState = {
@@ -28,7 +16,8 @@ const initialState: PostsState = {
   query: '',
   loading: false,
   error: null,
-  items: undefined
+  items: undefined,
+  selectedPost: null
 }
 
 const postsReducer = createSlice({
@@ -55,8 +44,22 @@ const postsReducer = createSlice({
               state.loading = false
               state.error = action.error.message || 'Failed to fetch posts'
           })
-  },
-})
+          .addCase(fetchPostById.pending, (state) => {
+            state.loading = true
+            state.error = null
+          })
+          .addCase(fetchPostById.fulfilled, (state, action: PayloadAction<PostType>) => {
+            state.loading = false
+            console.log('Fetched post:', action.payload)
+            state.selectedPost = action.payload
+          })
+          .addCase(fetchPostById.rejected, (state, action) => {
+            state.loading = false
+            state.error = action.error.message || 'Failed to fetch post'
+          })
+      },
+    })
+          
 
 export const { setQuery } = postsReducer.actions
 export default postsReducer.reducer

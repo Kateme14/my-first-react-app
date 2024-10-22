@@ -4,9 +4,12 @@ import postsReducer from '../redux/postsReducer'
 import postPopUpReducer from './postPopUpReducer'
 import likesReducer from './likesReducer'
 import bookmarksReducer from './bookmarksReducer'
-// import rootSaga from './rootSaga'
+import authReducer from './authReducer'
+
+
 
 const combineReducer = combineReducers({
+  auth: authReducer,
   posts: postsReducer,
   postPopUp: postPopUpReducer,
   likes: likesReducer,
@@ -19,8 +22,8 @@ export const store = configureStore({
   //     getDefaultMiddleware().concat(thunkMiddleware),
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      serializableCheck: false,
-    }).concat(thunk),
+      // serializableCheck: false,
+    }),
 })
 
 export type RootState = ReturnType<typeof combineReducer>
