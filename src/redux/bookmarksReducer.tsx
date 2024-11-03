@@ -4,8 +4,14 @@ interface BookmarksState {
   bookmarks: string[]
 }
 
+
+const loadBookmarksFromLocalStorage = (): string[] => {
+  const storedBookmarks = localStorage.getItem('bookmarks')
+  return storedBookmarks ? JSON.parse(storedBookmarks) : []
+}
+
 const initialState: BookmarksState = {
-  bookmarks: []
+  bookmarks: loadBookmarksFromLocalStorage()
 }
 
 const bookmarksReducer = createSlice({
@@ -15,10 +21,12 @@ const bookmarksReducer = createSlice({
     addBookmark: (state, action: PayloadAction<string>) => {
       if (!state.bookmarks.includes(action.payload)) {
         state.bookmarks.push(action.payload)
+        localStorage.setItem('bookmarks', JSON.stringify(state.bookmarks))
       }
     },
     removeBookmark: (state, action: PayloadAction<string>) => {
       state.bookmarks = state.bookmarks.filter(id => id !== action.payload)
+      localStorage.setItem('bookmarks', JSON.stringify(state.bookmarks))
     }
   }
 })

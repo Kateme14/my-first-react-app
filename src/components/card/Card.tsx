@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../styles/App.scss'
 import { CardProps, CardVariant } from '../types/Types'
 import { setSelectedPost } from '../../redux/postPopUpReducer'
@@ -8,32 +8,50 @@ import { RootState } from '../../redux/store'
 import { addBookmark, removeBookmark } from '../../redux/bookmarksReducer'
 import { useNavigate } from 'react-router-dom'
 
-
+type LikeStatus = 'liked' | 'disliked' | 'neutral'
 
 interface CardComponentProps extends CardProps {
   isFiltered: boolean
 }
 
 
-const Card: React.FC<CardComponentProps> = ({ id, date, title, imgSrc, text, variant, isFiltered }: CardComponentProps) =>  {
+const Card: React.FC<CardComponentProps> = ({ id, date, title, imgSrc, text, variant, isFiltered }: CardComponentProps) => {
   const dispatch = useDispatch()
   const likes = useSelector((state: RootState) => state.likes[id]?.likes || 0)
   const dislikes = useSelector((state: RootState) => state.likes[id]?.dislikes || 0)
+  const status = useSelector((state: RootState) => state.likes[id]?.status || 'neutral')
   const bookmarks = useSelector((state: RootState) => state.bookmarks.bookmarks)
-  const [likeStatus, setLikeStatus] = useState<'liked' | 'disliked' | undefined>(undefined)
+  const [likeStatus, setLikeStatus] = useState<LikeStatus>('neutral')
   const isBookmarked = bookmarks.includes(id)
   const navigate = useNavigate()
+
+  useEffect(() => {
+    setLikeStatus(status)
+  }, [status])
+
   const handleLike = () => {
-    setLikeStatus(likeStatus === 'liked' ? undefined : 'liked')
-    if (likeStatus !== 'liked') {
+    if (likeStatus === 'liked') {
+      setLikeStatus('neutral')
       dispatch(likePost(id))
+    } else {
+      setLikeStatus('liked')
+      dispatch(likePost(id))
+      if (likeStatus === 'disliked') {
+        setLikeStatus('liked')
+      }
     }
   }
- 
+
   const handleDislike = () => {
-    setLikeStatus(likeStatus === 'disliked' ? undefined : 'disliked')
-    if (likeStatus !== 'disliked') {
+    if (likeStatus === 'disliked') {
+      setLikeStatus('neutral')
       dispatch(dislikePost(id))
+    } else {
+      setLikeStatus('disliked')
+      dispatch(dislikePost(id))
+      if (likeStatus === 'liked') {
+        setLikeStatus('disliked')
+      }
     }
   }
 
@@ -58,7 +76,7 @@ const Card: React.FC<CardComponentProps> = ({ id, date, title, imgSrc, text, var
       console.warn('Variant is undefined or null:', variant)
       return null
     }
-    console.log('Rendering content for variant:', variant)
+
     const cardClassName = `${variant.toLowerCase()} ${isFiltered ? 'filtered' : ''}`
     switch (variant) {
       case CardVariant.Large:
