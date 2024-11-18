@@ -25,7 +25,7 @@ const RouterComponent: React.FC<RouterComponentProps> = ({ isSignUp, toggleForm,
         <Route path="/signup" element={<SignUp toggleForm={toggleForm} onLogin={onLogin} />} />
         {/* <Route path="/selected-post" Component={() => <SelectedPost />} /> */}
         <Route path="/post/:id" element={<SelectedPost />} />
-        <Route path="/pagination" Component={() => <Pagination />} />
+        <Route path="/pagination" Component={() => <Pagination onPrevious={() => {}} onNext={() => {}} />} />
         {/* <Route path="/" Component={() => <PostList />} /> */}
         <Route path="/" Component={() => <TabbedPostList />} />
         <Route path="/profile" element={<Profile />} />
