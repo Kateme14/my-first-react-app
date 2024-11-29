@@ -1,0 +1,15 @@
+.footer {
+  background-color: blue;
+  padding: 20px 0;
+}
+.footer__container {
+  max-width: 1230px;
+  padding: 0 15px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer__text {
+  color: #fff;
+}/*# sourceMappingURL=Footer.css.map */

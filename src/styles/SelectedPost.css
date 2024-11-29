@@ -1,0 +1,25 @@
+.selected-post {
+  padding: 120px 0;
+}
+.selected-post__container {
+  max-width: 1230px;
+  padding: 0 15px;
+  margin: 0 auto;
+  max-width: 800px;
+}
+.selected-post__header {
+  margin-bottom: 40px;
+}
+.selected-post__date {
+  margin-bottom: 20px;
+  color: rgb(66, 68, 68);
+}
+.selected-post__image-wrapper {
+  margin-bottom: 20px;
+}
+.selected-post__image {
+  width: 100%;
+}
+.selected-post__text {
+  margin-bottom: 15px;
+}/*# sourceMappingURL=SelectedPost.css.map */
